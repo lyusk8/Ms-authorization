@@ -7,26 +7,14 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/authorization")
+@RequestMapping
 class AuthorizationController(
     val authorizationService : AuthorizationService
 ) {
 
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    fun teste(@RequestBody cliente : AuthorizationRequest) : AuthorizationResponse {
-       return null;
-    }
-
-    @PostMapping
+    @GetMapping("/authorization")
     @ResponseStatus(HttpStatus.CREATED)
-    fun criarAutorizacao(@RequestBody authorization : AuthorizationRequest) : AuthorizationResponse{
-       return null;
-    }
-
-    @PostMapping("/permissions")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun criarPermissoes(@RequestBody permission : AuthorizationRequest) : AuthorizationResponse{
-        return null;
+    fun criarEvento(@RequestBody authorization: AuthorizationRequest) : AuthorizationResponse{
+        return authorizationService.autorizacao(authorization)
     }
 }

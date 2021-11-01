@@ -1,4 +1,3 @@
 package com.letscode.msauthorization.dto.authorizationResponse
 
-class AuthorizationResponse {
-}
+data class AuthorizationResponse(var permission: List<String>)
